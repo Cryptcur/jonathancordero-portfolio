@@ -3,6 +3,7 @@ const path = require("path");
 const db = require("./db");
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use("/dist", express.static(path.join(__dirname, "dist")));
 
@@ -15,8 +16,6 @@ app.get("/api/users", (req, res, next) => {
     .then(users => res.send(users))
     .catch(next);
 });
-
-const port = process.env.PORT || 3000;
 
 db.sync()
   .then(() => {
