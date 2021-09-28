@@ -19,6 +19,6 @@ app.get("/api/users", (req, res, next) => {
 
 db.sync()
   .then(() => {
-    app.listen(port, () => console.log(`Listening on port: ${PORT}`));
+    app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
   })
   .catch(ex => console.log(ex));
