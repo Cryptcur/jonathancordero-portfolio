@@ -23,11 +23,7 @@ const sync = async () => {
   }
 };
 const readUsers = async () => {
-  try {
-    return (await client.query("SELECT * from users;")).rows;
-  } catch (ex) {
-    console.log(ex);
-  }
+  return (await client.query("SELECT * from users;")).rows;
 };
 
 module.exports = {
