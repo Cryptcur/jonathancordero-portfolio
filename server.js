@@ -6,7 +6,7 @@ const db = require("./db");
 
 const PORT = process.env.PORT || 3000;
 
-// app.use(express.json());
+app.use(express.json());
 app.use("/dist", express.static(path.join(__dirname, "dist")));
 
 app.get("/", (req, res, next) =>
