@@ -1,10 +1,16 @@
 const pg = require("pg");
 const client = new pg.Client({
   connectionString:
-    process.env.DATABASE_URL || "postgres://localhost:5432/testing_db"
+    process.env.DATABASE_URL || "postgres://localhost/testing_db"
 });
-
 client.connect();
+// const client = new pg.Client({
+//   database: "testing_db",
+//   port: 5432,
+//   host: "localhost",
+//   ssl: false
+// });
+// client.connect();
 
 const sync = async () => {
   try {

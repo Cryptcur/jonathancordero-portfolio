@@ -13,18 +13,10 @@ app.get("/", (req, res, next) =>
   res.sendFile(path.join(__dirname, "index.html"))
 );
 
-app.get("/api/users", async (req, res, next) => {
-  try {
-    await db
-      .readUsers()
-      .then(users => {
-        console.log("USERS: ", users);
-        res.send(users);
-      })
-      .catch(next);
-  } catch (ex) {
-    next(ex);
-  }
+app.get("/api/users", (req, res, next) => {
+  db.readUsers()
+    .then(users => res.send(users))
+    .catch(next);
 });
 
 db.sync()
