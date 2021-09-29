@@ -5,7 +5,10 @@ const App = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/users").then(response => setUsers(response.data));
+    axios
+      .get("/api/users")
+      .then(response => setUsers(response.data))
+      .catch(ex => console.log(ex));
   }, []);
 
   return (
