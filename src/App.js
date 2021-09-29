@@ -7,7 +7,10 @@ const App = () => {
   useEffect(() => {
     axios
       .get("/api/users")
-      .then(response => setUsers(response.data))
+      .then(response => {
+        console.log("RESPONSE: ", response.data);
+        setUsers(response.data);
+      })
       .catch(ex => console.log(ex));
   }, []);
 
