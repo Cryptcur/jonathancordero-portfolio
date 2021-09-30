@@ -13,7 +13,8 @@ client.connect();
 // client.connect();
 
 const sync = async () => {
-  const SQL = `
+  try {
+    const SQL = `
           CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
           DROP TABLE IF EXISTS users;
           CREATE TABLE users(
@@ -23,7 +24,10 @@ const sync = async () => {
           INSERT INTO users(name) values('lucy');
           INSERT INTO users(name) values('moe');
           `;
-  await client.query(SQL);
+    await client.query(SQL);
+  } catch (ex) {
+    console.log(ex);
+  }
 };
 const readUsers = async () => {
   return (await client.query("SELECT * from users;")).rows;
