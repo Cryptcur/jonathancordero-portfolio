@@ -1,5 +1,5 @@
-const { Pool } = require("pg");
-const client = new Pool({
+const pg = require("pg");
+const client = new pg.Client({
   connectionString:
     process.env.DATABASE_URL || "postgres://localhost/testing_db"
 });
