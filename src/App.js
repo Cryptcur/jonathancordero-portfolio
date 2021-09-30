@@ -5,6 +5,7 @@ const App = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(async () => {
+    console.log("IN USE EFFECT");
     await axios
       .get("/api/users")
       .then(response => {

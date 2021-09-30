@@ -14,8 +14,12 @@ app.get("/", (req, res, next) =>
 );
 
 app.get("/api/users", (req, res, next) => {
+  console.log("Here");
   db.readUsers()
-    .then(users => res.send(users))
+    .then(users => {
+      console.log("USERS: ", users);
+      res.send(users);
+    })
     .catch(next);
 });
 
