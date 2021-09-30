@@ -17,6 +17,7 @@ const App = () => {
   return (
     <div>
       <div>My great app</div>
+      <div>{users && users.length}</div>
       <ul>{users && users.map(user => <li key={user.id}>{user.name}</li>)}</ul>
     </div>
   );
