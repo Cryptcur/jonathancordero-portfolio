@@ -4,9 +4,9 @@ import axios from "axios";
 const App = () => {
   const [users, setUsers] = useState([]);
 
-  useEffect(async () => {
+  useEffect(() => {
     console.log("IN USE EFFECT");
-    await axios
+    axios
       .get("/api/users")
       .then(response => {
         console.log("RESPONSE: ", response.data);
